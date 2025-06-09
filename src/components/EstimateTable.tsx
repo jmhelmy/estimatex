@@ -49,9 +49,9 @@ export default function EstimateTable({ initialItems = [] }: EstimateTableProps)
   const calcTotal = (item: LineItem) => item.quantity * item.unitCost;
 
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full border border-gray-300 text-sm">
-        <thead className="bg-gray-100">
+    <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+      <table className="min-w-full divide-y divide-gray-200 bg-white text-sm">
+        <thead className="bg-gray-50">
           <tr>
             <th className="px-2 py-1 text-left">Category</th>
             <th className="px-2 py-1 text-left">Description</th>
@@ -63,19 +63,19 @@ export default function EstimateTable({ initialItems = [] }: EstimateTableProps)
         </thead>
         <tbody>
           {items.map((item, idx) => (
-            <tr key={idx} className="even:bg-gray-50">
+            <tr key={idx} className="even:bg-gray-50 hover:bg-gray-100">
               <td className="border-t px-2 py-1">
                 <input
                   value={item.category}
                   onChange={(e) => updateItem(idx, "category", e.target.value)}
-                  className="w-full bg-transparent outline-none"
+                  className="w-full rounded border px-1 py-0.5 bg-transparent focus:border-blue-500 focus:ring-blue-500"
                 />
               </td>
               <td className="border-t px-2 py-1">
                 <input
                   value={item.description}
                   onChange={(e) => updateItem(idx, "description", e.target.value)}
-                  className="w-full bg-transparent outline-none"
+                  className="w-full rounded border px-1 py-0.5 bg-transparent focus:border-blue-500 focus:ring-blue-500"
                 />
               </td>
               <td className="border-t px-2 py-1 text-right">
@@ -83,14 +83,14 @@ export default function EstimateTable({ initialItems = [] }: EstimateTableProps)
                   type="number"
                   value={item.quantity}
                   onChange={(e) => updateItem(idx, "quantity", e.target.value)}
-                  className="w-full bg-transparent outline-none text-right"
+                  className="w-full rounded border px-1 py-0.5 bg-transparent text-right focus:border-blue-500 focus:ring-blue-500"
                 />
               </td>
               <td className="border-t px-2 py-1">
                 <input
                   value={item.unit}
                   onChange={(e) => updateItem(idx, "unit", e.target.value)}
-                  className="w-full bg-transparent outline-none"
+                  className="w-full rounded border px-1 py-0.5 bg-transparent focus:border-blue-500 focus:ring-blue-500"
                 />
               </td>
               <td className="border-t px-2 py-1 text-right">
@@ -98,7 +98,7 @@ export default function EstimateTable({ initialItems = [] }: EstimateTableProps)
                   type="number"
                   value={item.unitCost}
                   onChange={(e) => updateItem(idx, "unitCost", e.target.value)}
-                  className="w-full bg-transparent outline-none text-right"
+                  className="w-full rounded border px-1 py-0.5 bg-transparent text-right focus:border-blue-500 focus:ring-blue-500"
                 />
               </td>
               <td className="border-t px-2 py-1 text-right">
@@ -110,7 +110,7 @@ export default function EstimateTable({ initialItems = [] }: EstimateTableProps)
       </table>
       <button
         onClick={addRow}
-        className="mt-2 rounded bg-blue-600 px-3 py-1 text-white"
+        className="mt-4 rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
       >
         Add Row
       </button>
